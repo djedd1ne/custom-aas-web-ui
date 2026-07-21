@@ -1,22 +1,21 @@
 /**
  * plugins/vuetify.ts
  *
- * Framework documentation: https://vuetifyjs.com`
+ * Framework documentation: https://vuetifyjs.com
  */
 
 // Composables
 import { createVuetify } from 'vuetify'
-// Composables
 import { mdi } from 'vuetify/iconsets/mdi'
 import { customIcons } from '@/assets/Icons/customIcons'
 import { adjustColorBrightness } from '@/utils/ThemeUtils'
+
 // Styles
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
-export function initializeVuetify (primaryLightColor = '#0cb2f0', primaryDarkColor = '#F69222') {
-  // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
+export function initializeVuetify (primaryLightColor = '#9AA502', primaryDarkColor = '#9AA502') {
   const vuetify = createVuetify({
     defaults: {
       VBtn: {
@@ -36,66 +35,88 @@ export function initializeVuetify (primaryLightColor = '#0cb2f0', primaryDarkCol
           dark: false,
           colors: {
             primary: primaryLightColor,
+            'on-primary': '#FFFFFF',           // Forces white text on primary buttons
             primarySurface: adjustColorBrightness(primaryLightColor, 0.5),
-            background: '#FFFFFF',
-            appBar: '#F5F5F5',
-            navigationMenu: '#FFFFFF',
-            navigationMenuSecondary: '#FAFAFA',
-            appNavigation: '#FFFFFF',
+            
+            // --- SCHUNK LIGHT THEME (HIGH CONTRAST) ---
+            background: '#F0F4F8',
+            appBar: '#FFFFFF',                 
+            'on-appBar': '#001B47',            // Dark blue text on white header
+            
+            navigationMenu: '#001B47',         
+            'on-navigationMenu': '#FFFFFF',    // <-- THE FIX: Forces white text on the dark sidebar
+            
+            navigationMenuSecondary: '#051433',
+            'on-navigationMenuSecondary': '#FFFFFF',
+            
+            appNavigation: '#001B47',          
+            'on-appNavigation': '#FFFFFF',
+            
             card: '#FFFFFF',
-            cardDialog: '#F0F0F0',
-            cardHeader: '#F5F5F5',
-            elevatedCard: '#F1F1F1',
-            detailsCard: '#FBFBFB',
-            detailsHeader: '#F5F5F5',
-            listItem: '#ABABAB',
-            hover: '#242424',
+            'on-card': '#0F172A',
+            cardDialog: '#FFFFFF',
+            cardHeader: '#F8FAFC',
+            elevatedCard: '#FFFFFF',
+            
+            detailsCard: '#FFFFFF',
+            detailsHeader: '#F8FAFC',
+            listItem: '#9AA502',               
+            hover: '#051433',                  
             buttonText: '#FFFFFF',
-            divider: '#E0E0E0',
-            listItemText: '#000000',
-            subtitleText: '#626262',
-            normalText: '#000000',
+            divider: '#E2E8F0',
+            listItemText: '#FFFFFF',           
+            subtitleText: '#64748B',
+            normalText: '#0F172A',             
             lamp: '#7A7A7A',
-            tableHeader: '#EBEBEB',
-            tableOdd: '#F5F5F5',
-            tableEven: '#FAFAFA',
-            invertedButton: '#121212',
-            lightButton: '#5E5E5E',
-            icon: '#7A7A7A',
-            titleText: '#212121',
+            tableHeader: '#F0F4F8',
+            tableOdd: '#FFFFFF',
+            tableEven: '#F8FAFC',
+            invertedButton: '#001B47',
+            'on-invertedButton': '#FFFFFF',
+            lightButton: '#F0F4F8',
+            icon: '#001B47',                   
+            titleText: '#001B47',              
           },
         },
         dark: {
           dark: true,
           colors: {
             primary: primaryDarkColor,
+            'on-primary': '#050B14',           // Dark text on Pistachio Green buttons
             primarySurface: adjustColorBrightness(primaryDarkColor, -0.5),
-            background: '#121212',
-            appBar: '#1E1E1E',
-            navigationMenu: '#1E1E1E',
-            navigationMenuSecondary: '#121212',
-            appNavigation: '#121212',
-            card: '#121212',
-            cardDialog: '#202020',
-            cardHeader: '#282828',
-            elevatedCard: '#343434',
-            detailsCard: '#181818',
-            detailsHeader: '#151515',
-            listItem: '#727272',
-            hover: '#E2E2E2',
-            buttonText: '#272727',
-            divider: '#2F2F2F',
-            listItemText: '#FFFFFF',
-            subtitleText: '#A5A5A5',
-            normalText: '#FFFFFF',
+            
+            // --- SCHUNK DARK THEME ---
+            background: '#050B14',             
+            appBar: '#0A1428',                 
+            'on-appBar': '#FFFFFF',
+            
+            navigationMenu: '#0A1428',         
+            'on-navigationMenu': '#FFFFFF',
+            
+            navigationMenuSecondary: '#050B14',
+            appNavigation: '#050B14',
+            card: '#111E3A',                   
+            cardDialog: '#0A1428',
+            cardHeader: '#142446',
+            elevatedCard: '#142446',
+            
+            detailsCard: '#0A1428',
+            detailsHeader: '#050B14',
+            listItem: '#9AA502',                 
+            hover: '#1A2C4F',                  
+            buttonText: '#050B14',             
+            divider: '#1A2C4F',
+            listItemText: '#F8FAFC',           
+            subtitleText: '#94A3B8',
+            normalText: '#F8FAFC',             
             lamp: '#959595',
-            tableHeader: '#313131',
-            tableOdd: '#272727',
-            tableEven: '#212121',
-            invertedButton: '#F0F0F0',
-            lightButton: '#AFAFAF',
-            icon: '#BDBDBD',
-            titleText: '#FFFFFF',
+            tableHeader: '#0A1428',
+            tableOdd: '#111E3A',
+            tableEven: '#0A1428',
+            invertedButton: '#F8FAFC',
+            lightButton: '#142446',
+            icon: '#9AA502',                   
+            titleText: '#FFFFFF',              
           },
         },
       },

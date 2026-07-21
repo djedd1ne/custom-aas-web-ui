@@ -75,6 +75,24 @@
             <v-list-item
               v-if="currentTab === 'aas'"
               :active="false"
+              :border="isActiveRoutePath('/aascreator')"
+              class="mt-3 py-2"
+              nav
+              subtitle="Generate AASX from Excel"
+              title="AAS Creator"
+              :to="isActiveRoutePath('/aascreator') ? '' : { path: '/aascreator', query: route.query }"
+              @click="closeMenu"
+            >
+              <template #prepend>
+                <v-avatar color="surface-light" icon="mdi-hammer-wrench" rounded>
+                  <v-icon color="medium-emphasis" />
+                </v-avatar>
+              </template>
+            </v-list-item>
+
+            <v-list-item
+              v-if="currentTab === 'aas'"
+              :active="false"
               :border="isActiveRoutePath('/aassmviewer')"
               class="mt-3 py-2"
               nav

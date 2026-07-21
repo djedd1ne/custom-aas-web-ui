@@ -251,6 +251,7 @@
             />
           </v-col>
         </v-row>
+        
         <!-- About -->
         <v-row align="center" justify="end">
           <v-col class="pr-1" cols="auto">
@@ -272,6 +273,31 @@
               size="small"
               style="z-index: 9990"
               to="/about"
+            />
+          </v-col>
+        </v-row>
+
+        <!-- AAS Creator -->
+        <v-row align="center" justify="end">
+          <v-col class="pr-1" cols="auto">
+            <v-card
+              class="py-1 px-2 text-buttonText"
+              :color="route.path === '/aascreator' ? 'primarySurface' : 'primary'"
+              :disabled="route.path === '/aascreator'"
+              to="/aascreator"
+            >AAS Creator</v-card>
+          </v-col>
+
+          <v-col class="py-1" cols="auto">
+            <v-btn
+              :active="route.path === '/aascreator'"
+              class="text-buttonText"
+              color="primary"
+              :disabled="route.path === '/aascreator'"
+              icon="mdi-hammer-wrench"
+              size="small"
+              style="z-index: 9990"
+              to="/aascreator"
             />
           </v-col>
         </v-row>

@@ -11,6 +11,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AASCreator: typeof import('./components/UIComponents/AASCreator.vue')['default']
     AASForm: typeof import('./components/EditorComponents/AASForm.vue')['default']
     AASList: typeof import('./components/AppNavigation/AASList.vue')['default']
     AASListDetails: typeof import('./components/AppNavigation/AASListDetails.vue')['default']

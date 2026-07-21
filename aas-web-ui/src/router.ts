@@ -14,6 +14,7 @@ import {
 } from '@/composables/Auth/OAuth2Navigation'
 import { discoverOpenIdConfiguration, oidcIssuersMatch } from '@/composables/Auth/OpenIdConnect'
 import { useRouteHandling } from '@/composables/routeHandling'
+import AASCreator from '@/components/UIComponents/AASCreator.vue'
 import AASEditor from '@/pages/AASEditor.vue'
 import AASSubmodelViewer from '@/pages/AASSubmodelViewer.vue'
 import AASViewer from '@/pages/AASViewer.vue'
@@ -126,6 +127,16 @@ function findRouteByNameCaseInsensitive (records: Array<RouteRecordRaw>, name: s
 
 // Static routes
 const staticRoutes: Array<RouteRecordRaw> = [
+  {
+    path: '/aascreator',
+    name: 'AASCreator',
+    component: AASCreator,
+    meta: { 
+      name: 'AAS Creator', 
+      subtitle: 'Generate and Package AASX Files',
+      requiredFeature: 'creator' // Used by Keycloak feature control
+    },
+  },
   {
     path: '/aasviewer',
     name: 'AASViewer',
@@ -287,7 +298,7 @@ export async function createAppRouter (): Promise<Router> {
 
   // Data
   const routesStayOnPages: Set<RouteRecordNameGeneric> = new Set(['About', 'NotFound404'])
-  const routesForMobile: Array<RouteRecordNameGeneric> = ['AASList', 'SubmodelList', 'Visualization']
+  const routesForMobile: Array<RouteRecordNameGeneric> = ['AASList', 'SubmodelList', 'Visualization', 'AASCreator']
   const routesForDesktop: Array<RouteRecordNameGeneric> = [
     'AASEditor',
     'AASViewer',
@@ -295,6 +306,7 @@ export async function createAppRouter (): Promise<Router> {
     'SMEditor',
     'SMViewer',
     'Visualization',
+    'AASCreator',
   ]
   const routesOnlyMobile: Set<RouteRecordNameGeneric> = new Set(
     routesForMobile.filter(x => !routesForDesktop.includes(x)),
