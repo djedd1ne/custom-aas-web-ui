@@ -30,3 +30,4 @@ tsconfig.tsbuildinfo
 # Playwright integration test artifacts
 /playwright-report
 /test-results
+node22.tar.xz
