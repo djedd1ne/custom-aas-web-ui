@@ -1,7 +1,8 @@
 <template>
-  <v-container fluid class="pa-0">
-    <v-card elevation="0" class="pa-4">
+  <v-container class="pa-0" fluid>
+    <v-card class="pa-4" elevation="0">
       <v-card-title class="text-h5 text-primary mb-4 px-0">AAS Creator</v-card-title>
+
       <v-card-text class="px-0">
         <p class="mb-4 text-subtitleText">
           Upload a SCHUNK IDTA-template XLSX file to generate an AASX package.
@@ -9,20 +10,20 @@
 
         <v-file-input
           v-model="xlsxFile"
-          label="Select XLSX File"
           accept=".xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-          prepend-icon="mdi-file-excel"
-          variant="outlined"
           color="primary"
-          :rules="[(v: unknown) => !!v || 'File is required']"
           :disabled="isProcessing"
+          label="Select XLSX File"
+          prepend-icon="mdi-file-excel"
+          :rules="[(v: unknown) => !!v || 'File is required']"
+          variant="outlined"
         />
 
-        <v-progress-linear v-if="isProcessing" indeterminate color="primary" class="my-4" />
+        <v-progress-linear v-if="isProcessing" class="my-4" color="primary" indeterminate />
       </v-card-text>
 
-      <v-card-actions class="px-0" v-if="!isProcessing">
-        <v-btn color="primary" variant="outlined" :disabled="!xlsxFile" @click="generateAndDownload">
+      <v-card-actions v-if="!isProcessing" class="px-0">
+        <v-btn color="primary" :disabled="!xlsxFile" variant="outlined" @click="generateAndDownload">
           <v-icon start>mdi-download</v-icon>
           Download .aasx
         </v-btn>
@@ -30,10 +31,10 @@
         <!-- Only rendered when the token carries the admin role -->
         <v-btn
           v-if="isAdmin"
-          color="primary"
-          variant="flat"
           class="ml-3"
+          color="primary"
           :disabled="!xlsxFile"
+          variant="flat"
           @click="generateAndPushToServer"
         >
           <v-icon start>mdi-cloud-upload</v-icon>

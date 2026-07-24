@@ -251,7 +251,7 @@
             />
           </v-col>
         </v-row>
-        
+
         <!-- About -->
         <v-row align="center" justify="end">
           <v-col class="pr-1" cols="auto">
