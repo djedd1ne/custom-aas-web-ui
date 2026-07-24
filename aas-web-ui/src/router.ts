@@ -131,11 +131,7 @@ const staticRoutes: Array<RouteRecordRaw> = [
     path: '/aascreator',
     name: 'AASCreator',
     component: AASCreator,
-    meta: { 
-      name: 'AAS Creator', 
-      subtitle: 'Generate and Package AASX Files',
-      requiredFeature: 'creator' // Used by Keycloak feature control
-    },
+    meta: { name: 'AAS Creator', subtitle: 'Generate and Package AASX Files' },
   },
   {
     path: '/aasviewer',

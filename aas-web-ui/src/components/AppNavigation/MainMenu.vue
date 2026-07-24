@@ -303,7 +303,12 @@
   }
 
   function setTabByRoutePath (): void {
-    if (isActiveRoutePath('/aasviewer') || isActiveRoutePath('/aaseditor') || isActiveRoutePath('/aassmviewer')) {
+    if (
+      isActiveRoutePath('/aasviewer')
+      || isActiveRoutePath('/aaseditor')
+      || isActiveRoutePath('/aassmviewer')
+      || isActiveRoutePath('/aascreator')
+    ) {
       currentTab.value = 'aas'
     } else if (isActiveRoutePath('/smviewer') || isActiveRoutePath('/smeditor') || isActiveRoutePath('/visu')) {
       currentTab.value = 'submodel'
